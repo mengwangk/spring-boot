@@ -5,17 +5,18 @@ import org.springframework.boot.autoconfigure.*;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
-@EnableAutoConfiguration
+//@Controller
+//@EnableAutoConfiguration
+@RestController
 public class SampleController {
 
-    @RequestMapping("/")
+    @RequestMapping("/hello")
     @ResponseBody
-    String home() {
+    public String home() {
         return "Hello World!";
     }
 
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(SampleController.class, args);
-    }
+    //public static void main(String[] args) throws Exception {
+    //    SpringApplication.run(SampleController.class, args);
+    //}
 }
