@@ -1,4 +1,4 @@
-package com.sprintboot.io;
+package com.sprintboot.io.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RestController
 public class HelloController {
 
-    @RequestMapping("/greetings")
+    @RequestMapping("/hello")
     public String index() {
-        return "Greetings!";
+        return "hello!";
     }
 
 }
