@@ -60,7 +60,13 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-actuator")
     // end::actuator[]
     
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    
+    compile("org.springframework.boot:spring-boot-starter-security")
+    
     testCompile("junit:junit")
     testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("org.springframework.security:spring-security-test")
+    
 }
 
