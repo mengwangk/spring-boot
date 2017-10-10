@@ -1,28 +1,52 @@
 package com.sprintboot.io;
 
+import java.util.Arrays;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.sprintboot.io.pojo.Customer;
 import com.sprintboot.io.repository.CustomerRepository;
 
 @SpringBootApplication
-public class JpaApplication {
+public class Application {
 
 	private static final Logger log = LoggerFactory.getLogger(Application.class);
 
 	public static void main(String[] args) {
-		SpringApplication.run(JpaApplication.class);
+		SpringApplication.run(Application.class);
 	}
 
 	@Bean
-	public CommandLineRunner demo(CustomerRepository repository) {
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurerAdapter() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/greeting-javaconfig").allowedOrigins("http://localhost:9000");
+			}
+		};
+	}
+
+	@Bean
+	public CommandLineRunner demo(ApplicationContext ctx, CustomerRepository repository) {
 		return (args) -> {
+
+			System.out.println("Spring Boot beans:");
+
+			String[] beanNames = ctx.getBeanDefinitionNames();
+			Arrays.sort(beanNames);
+			for (String beanName : beanNames) {
+				System.out.println(beanName);
+			}
 			// save a couple of customers
 			repository.save(new Customer("Jack", "Bauer"));
 			repository.save(new Customer("Chloe", "O'Brian"));
