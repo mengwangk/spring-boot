@@ -15,6 +15,16 @@
     }
 }
 
+plugins {
+	id 'io.franzbecker.gradle-lombok' version '1.10'
+	id 'java'
+}
+
+lombok { // optional: values below are the defaults
+	version = "1.16.18"
+	sha256 = ""
+}
+
 // Apply the java-library plugin to add support for Java Library
 apply plugin: 'java-library'
 apply plugin: 'java'
@@ -76,6 +86,7 @@ dependencies {
     // Use MySQL Connector-J
     compile 'mysql:mysql-connector-java'
     
+    compileOnly 'org.projectlombok:lombok:1.16.18'
     
     testCompile("com.jayway.jsonpath:json-path")
     testCompile("junit:junit")
