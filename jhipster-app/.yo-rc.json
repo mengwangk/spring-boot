@@ -1,0 +1,38 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.jhipstersvc",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "5.1.0",
+    "applicationType": "microservice",
+    "baseName": "jhipstersvc",
+    "packageName": "com.jhipstersvc",
+    "packageFolder": "com/jhipstersvc",
+    "serverPort": "8081",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "9502c0d8861e8839861f9ffced4e5fccce49a40d",
+    "enableTranslation": true,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "clientPackageManager": "yarn",
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "zh-cn"
+    ],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}

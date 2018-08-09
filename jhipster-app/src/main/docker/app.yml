@@ -1,0 +1,13 @@
+version: '2'
+services:
+    jhipstersvc-app:
+        image: jhipstersvc
+        environment:
+            # - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://jhipstersvc-postgresql:5432/jhipstersvc
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+    jhipstersvc-postgresql:
+        extends:
+            file: postgresql.yml
+            service: jhipstersvc-postgresql
